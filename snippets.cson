@@ -1,0 +1,65 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+'.source.js':
+  'Extend Class':
+    'prefix': 'extendclass'
+    'body': """
+      function ${1:className}() {
+        this.init.apply(this, arguments);
+      }
+
+      ${1:className}.prototype = Object.create(${2:extendClassName}.prototype);
+      ${1:className}.prototype.constructor = ${1:className};
+
+      ${1:className}.prototype.init = function() {
+        ${2:extendClassName}.prototype.${3:extendConstructor}.call(this);
+        ${4:code}
+      }
+    """
+  'Class':
+    'prefix': 'class'
+    'body': """
+      function ${1:className}() {
+        this.init.apply(this, arguments);
+      }
+
+      ${1:className}.prototype.init = function() {
+        ${2:code}
+      }
+    """
+  'Extend Function':
+    'prefix': 'extendfunction'
+    'body': """
+      ${1:backupObject}.${2:extendClassName}_${3:originalFunction} = ${2:extendClassName}.prototype.${3:originalFunction};
+      ${2:extendClassName}.prototype.${3:originalFunction} = function() {
+        ${1:backupObject}.${2:extendClassName}_${3:originalFunction}.call(this);
+      }
+    """
+  'Inherit Function':
+    'prefix': 'inheritfunction'
+    'body': """
+      ${1:className}.prototype.${2:functionName} = function() {
+        ${3:parentClass}.prototype.${2:functionName}.call(this);
+        ${4:code}
+      }
+    """

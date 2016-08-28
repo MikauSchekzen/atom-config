@@ -1,0 +1,33 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "a1b24fe8-6bd8-4001-a36b-6e29941ede64"
+  "autocomplete-plus":
+    autoActivationDelay: 0
+    maxVisibleSuggestions: 2
+    useCoreMovementCommands: false
+    useLocalityBonus: false
+  "bracket-matcher":
+    autocompleteBrackets: false
+    autocompleteSmartQuotes: false
+    wrapSelectionsInBrackets: false
+  core:
+    allowPendingPaneItems: false
+    disabledPackages: [
+      "ex-mode"
+      "vim-mode"
+      "fuzzy-finder"
+      "go-to-line"
+      "grammar-selector"
+      "image-view"
+      "metrics"
+      "line-ending-selector"
+    ]
+  editor:
+    fontSize: 13
+    showInvisibles: true
+    tabType: "soft"
+  "exception-reporting":
+    userId: "e6e3653c-274d-0cf0-39f0-88afa5226636"
+  welcome:
+    showOnStartup: false
